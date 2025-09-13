@@ -24,8 +24,8 @@ langchain>=0.1.0
 langchain-community>=0.0.10
 langchain-text-splitters>=0.0.1
 
-# Question generation (specific libraries)
-question-generator>=1.0.0
+# Question generation (specific libraries) - using available version
+question-generator>=0.1.11
 
 # API clients
 requests>=2.31.0

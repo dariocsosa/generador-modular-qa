@@ -7,9 +7,15 @@ import os
 import sys
 from pathlib import Path
 
+# Configurar encoding UTF-8 para Windows
+if os.name == 'nt':
+    import locale
+    if locale.getpreferredencoding() != 'UTF-8':
+        os.environ['PYTHONIOENCODING'] = 'utf-8'
+
 def verificar_entorno():
     """Verificar que el entorno esté correctamente configurado"""
-    print("🔍 Verificando configuración del entorno...")
+    print("[INFO] Verificando configuracion del entorno...")
     
     # Verificar Python version
     if sys.version_info < (3, 11):
@@ -186,7 +192,7 @@ def mostrar_siguiente_pasos():
 
 def main():
     """Función principal del script de inicio rápido"""
-    print("🤖 Generador Modular de Q&A - Inicio Rápido\n")
+    print("=== Generador Modular de Q&A - Inicio Rapido ===\n")
     
     # Verificar entorno
     if not verificar_entorno():
