@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  qa-generator:
+    build: .
+    container_name: qa_generator_app
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+      - ./logs:/app/logs
+      - ./.env:/app/.env
+    environment:
+      - PYTHONPATH=/app
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+    restart: unless-stopped
+    networks:
+      - qa_network
+
+networks:
+  qa_network:
+    driver: bridge
